@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>FallDect | About</title>
+        
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='./assets/favicon.ico') }}" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{ url_for('static', filename='./assets/css/styles.css') }}" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="{{ url_for('index') }}">Fall Detection</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('video') }}">Videos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('camera') }}">Camera</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="{{ url_for('about')}}">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- About-->
+        <section class="about-section" id="about">
+            <div class="container">
+                <div class="row mb-4">
+                    <div class="col d-flex justify-content-center">
+                        <h1 class="mx-auto my-0 text-uppercase">ABOUT</h1>
+                    </div>
+                </div>
+                
+                <div class="row mb-4 mb-lg-0 ">
+                    <div class="col-lg-6">
+                        <div class="bg-dark bg-opacity-10 mb-4 mb-lg-0 ">
+                            <div class="d-flex h-100">
+                                <div class="w-100 my-auto text-center text-lg-left">
+                                    <h4 class="text-white mb-2">Introduction</h4>
+                                    <p class="text-white text-opacity-75">Currently, computer vision and deep learning are growing strongly and this will be a potential area for research and development. The application fields of computer vision are very rich, which can be mentioned as defect detection, facial recognition, anatomy, robotics, security systems,... In which, image recognition The human situation is also one of the problems in the field that new technologies approach to solve in an intelligent way. Most families today install security cameras in the home, taking advantage of that, we can monitor human activities through the camera. Suppose a family member has a stroke and faints, but the camera is not always monitored by family members, which could lead to the fainted person not being detected by family members. taken to the hospital, the worst case can adversely affect life. In this paper, a skeleton-based approach to human posture recognition is proposed to identify the fall posture of people to help warn when a fall action is detected to help ensure safety for people. that can develop into a smart virtual assistant in the home.</p>
+                                    <hr class="d-none d-lg-block mb-0 ms-0" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="bg-dark bg-opacity-10 mb-4 mb-lg-0 ">
+                            <div class="d-flex h-100">
+                                <div class="w-100 my-auto text-center text-lg-left">
+                                    <h4 class="text-white mb-2">Method</h4>
+                                    <p class="mb-0 text-white text-opacity-75">Build and train LSTM model to recognize human fall action.</p>
+                                    <hr class="d-none d-lg-block mb-0 ms-0" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-dark bg-opacity-10 mb-4 mb-lg-0">
+                            <div class="d-flex h-100">
+                                <div class="w-100 my-auto text-center text-lg-left">
+                                    <h4 class="text-white mb-2">Duty</h4>
+                                    <p class="mb-0 text-white text-opacity-75">Research and build models: prepare the data set, model training and model evaluation.</p>
+                                    <p class="mb-0 text-white text-opacity-75">Build a fall action recognition demo: building a fall action identification website and test the system with real data.</p>
+                                    <hr class="d-none d-lg-block mb-0 ms-0" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-dark bg-opacity-10 mb-4 mb-lg-0">
+                            <div class="d-flex h-100">
+                                <div class="w-100 my-auto text-center text-lg-left">
+                                    <h4 class="text-white mb-2">Related tools and libraries</h4>
+                                    <p class="mb-0 text-white text-opacity-75">Python programming language.</p>
+                                    <p class="mb-0 text-white text-opacity-75">Deep learning model: LSTM (Long short term memory).</p>
+                                    <p class="mb-0 text-white text-opacity-75">FFMPEG, MoveNet, tensorflow, keras, pandas, opencv, flask,...</p>
+                                    <hr class="d-none d-lg-block mb-0 ms-0" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row mb-4 mb-lg-0 ">
+                    <div class="col-lg-6">
+                        <div class="bg-dark bg-opacity-10 mb-4 mb-lg-0 ">
+                            <div class="d-flex h-100">
+                                <div class="w-100 my-auto text-center text-lg-left">
+                                    <h4 class="text-white mb-2">Dataset</h4>
+                                    <p class="text-white text-opacity-75">This dataset contain 24 scenarios recorded with 8 IP video cameras. The first 22 first scenarios contain a fall and confounding events, the last 2 ones contain only confounding events.</p>
+                                    <hr class="d-none d-lg-block mb-0 ms-0" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="bg-dark bg-opacity-10 mb-4 mb-lg-0 ">
+                            <div class="d-flex h-100">
+                                <div class="w-100 my-auto text-center text-lg-left">
+                                    <h4 class="text-white mb-2">Products to be submitted</h4>
+                                    <p class="mb-0 text-white text-opacity-75">Model training dataset.</p>
+                                    <p class="mb-0 text-white text-opacity-75">Model built and model created.</p>
+                                    <p class="mb-0 text-white text-opacity-75">Results when training the model (training), testing during model training (validation) and testing after model training (test).</p>
+                                    <p class="mb-0 text-white text-opacity-75">Demo program.</p>
+                                    <hr class="d-none d-lg-block mb-0 ms-0" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+       
+        <!-- Contact-->
+        <section class="contact-section" id="contact">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5">
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+                                <h4 class="text-uppercase m-0">Address</h4>
+                                <hr class="my-4 mx-auto" />
+                                <div class="small text-black-50">3/2 Ninh Kieu, Can Tho</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-envelope text-primary mb-2"></i>
+                                <h4 class="text-uppercase m-0">Email</h4>
+                                <hr class="my-4 mx-auto" />
+                                <div class="small text-black-50"><a href="#!">truongb1910325@student.ctu.edu.vn</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-mobile-alt text-primary mb-2"></i>
+                                <h4 class="text-uppercase m-0">Phone</h4>
+                                <hr class="my-4 mx-auto" />
+                                <div class="small text-black-50">+89 794 357 283</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="social d-flex justify-content-center">
+                    <a class="mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+                    <a class="mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                    <a class="mx-2" href="https://github.com/nntruong1907"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer-->
+        <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; 2023</div></footer>
+        
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{{ url_for('static', filename='/assets/js/scripts.js') }}"></script>
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>
