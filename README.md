@@ -53,6 +53,11 @@ Install the external dependencies needed for the project:
 pip install -r setup.txt
 ```
 
+## Run Project
+```sh
+python main.py
+```
+
 # Deactivate env
 
 Once you’re done working with this virtual environment, you can deactivate it:
