@@ -1,6 +1,8 @@
 # FallDect
 This is a project to implement a human fall posture recognition model through LSTM deep learning model using Flask web framework.
-
+<h2 align="center">
+  <img src="/intro/intro.gif" alt="Coder GIF" width="500">
+</h2> 
 ## Project Description
 
 - Python (programming language): <a href="https://www.python.org/downloads/release/python-31010/" alt="Python"><img src="https://img.shields.io/badge/python-v3.10.10-blue?logo=python" /></a>
