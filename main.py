@@ -5,11 +5,9 @@ import cv2
 from datetime import datetime
 import time
 import tensorflow as tf
-# import threading
 import numpy as np
 
 import os
-# from werkzeug.utils import secure_filename
 from data import BodyPart
 from movenet import Movenet
 import utils_pose as utils
@@ -26,7 +24,6 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///project.db"
 app.config['SECRET_KEY'] = "random string"
 
 db.init_app(app)
-
 
 class Videos(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -95,7 +92,6 @@ def gen_video(path):
     cap.release()
     write_video(path, np.array(list), 24)
 
-
 def stream_video(path):
     cam = cv2.VideoCapture(path)
     while True:
@@ -108,47 +104,6 @@ def stream_video(path):
             time.sleep(0.01)
             yield (b'--frame\r\n'
                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
-
-
-def stream_camera1():
-    model = tf.keras.models.load_model("./models/model_fall.h5")
-    # cap = cv2.VideoCapture('https://192.168.239.166:8080/video')
-    cap = cv2.VideoCapture(0)
-    lm = []
-    time_step = 5
-    label = "waiting"
-    i = 0
-    while cap.isOpened():
-        ret, frame = cap.read()
-        if ret == True:
-            img = frame.copy()
-            img = cv2.resize(img, (854, 480))
-            img = tf.convert_to_tensor(img, dtype=tf.uint8)
-            i = i + 1
-
-            print(f"Start detect: frame {i}")
-            person = detect(img)
-            landmarks = get_keypoint_landmarks(person)
-            lm_pose = landmarks_to_embedding(tf.reshape(
-                tf.convert_to_tensor(landmarks), (1, 51)))
-    #         print(lm_pose)
-            lm.append(lm_pose)
-            img = np.array(img)
-            img = draw_prediction_on_image(img, person, crop_region=None,
-                                           close_figure=False, keep_input_size=True)
-            if (len(lm) == time_step):
-                lm = tf.reshape(lm, (1, 34, 5))
-
-                label = predict_pose(model, lm, label)
-
-            img = np.array(img)
-            img = draw_class_on_image(label, img)
-
-            ret, buffer = cv2.imencode('.jpg', frame)
-            frame = buffer.tobytes()
-            yield (b'--frame\r\n'
-                   b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
-
 
 def stream_camera():
     cam = cv2.VideoCapture(0)
@@ -166,7 +121,6 @@ def stream_camera():
 @app.route('/')
 def index():
     return render_template('index.html')
-
 
 @app.route('/', methods=['GET', 'POST'])
 def upload():
@@ -208,7 +162,6 @@ def upload():
     else:
         return render_template('index.html')
 
-
 @app.route('/play', methods=["GET", 'POST'])
 def play():
     global Tmp_path
@@ -221,23 +174,19 @@ def play():
 
     return render_template('show_result.html')
 
-
 @app.route('/stream')
 def stream():
     global Tmp_path
     print(Tmp_path)
     return Response(stream_video(Tmp_path), mimetype='multipart/x-mixed-replace; boundary=frame')
 
-
 @app.route('/camera')
 def camera():
     return render_template('camera.html', listVideo=video)
 
-
 @app.route('/stream_cam')
 def stream_cam():
     return Response(stream_camera(), mimetype='multipart/x-mixed-replace; boundary=frame')
-
 
 @app.route('/videos')
 def video():
@@ -245,11 +194,9 @@ def video():
     video = Videos.query.all()
     return render_template('video.html', listVideo=video)
 
-
 @app.route('/about')
 def about():
     return render_template('about.html')
-
 
 if __name__ == "__main__":
     with app.app_context():
